@@ -24,8 +24,8 @@ SHELL ["/bin/bash", "-c"]
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=1000
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+RUN if ! getent group $USERNAME >/dev/null; then groupadd --gid $USER_GID $USERNAME; fi \
+    && if ! id -u $USERNAME >/dev/null 2>&1; then useradd --uid $USER_UID --gid $USER_GID -m $USERNAME; fi \
     && apt-get update && apt-get install -y sudo \
     && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
