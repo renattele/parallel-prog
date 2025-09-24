@@ -7,12 +7,14 @@
         "vscode": {
             "extensions": [
                 "ms-vscode.cpptools",
-                "ms-vscode.cmake-tools"
+                "ms-vscode.cmake-tools",
+                "ms-vscode.cpptools-extension-pack",
+                "llvm-vs-code-extensions.vscode-clangd"
             ],
             "settings": {
                 "terminal.integrated.defaultProfile.linux": "bash"
             }
         }
     },
-    "postCreateCommand": "gcc --version"
+    "postCreateCommand": "gcc --version && clang --version || true"
 }
