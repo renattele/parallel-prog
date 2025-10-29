@@ -1,3 +1,5 @@
+#define _POSIX_C_SOURCE 200809L
+
 #include <math.h>
 #include <pthread.h>
 #include <stdio.h>

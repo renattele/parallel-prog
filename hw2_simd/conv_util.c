@@ -1,3 +1,5 @@
+#define _POSIX_C_SOURCE 200809L
+
 #include "conv_util.h"
 
 #include <stdlib.h>
