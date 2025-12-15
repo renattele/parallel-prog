@@ -1,4 +1,4 @@
-#define _POSIX_C_SOURCE 200810L
+#define _POSIX_C_SOURCE 200809L
 
 #include <immintrin.h>
 #include <stddef.h>

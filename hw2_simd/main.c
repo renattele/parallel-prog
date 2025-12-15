@@ -1,3 +1,5 @@
+#define _POSIX_C_SOURCE 200809L
+
 #include <stdio.h>
 #include <immintrin.h>
 #include <jpeglib.h>
@@ -101,9 +103,9 @@ int main(void)
     size_t sizes[] = {256, 512, 768, 1024, 1280, 1536, 1792, 2048};
     size_t repeats = 5;
     float kernel[] = {
-        0.0625f, 0.1250f, 0.0625f,
-        0.1250f, 0.2500f, 0.1250f,
-        0.0625f, 0.1250f, 0.0625f};
+        -1.0f, -1.0f, -1.0f,
+        -1.0f, 8.0f, -1.0f,
+        -1.0f, -1.0f, -1.0f};
     for (size_t n = 0; n < sizeof(sizes) / sizeof(sizes[0]); n++)
     {
         size_t side = sizes[n];
